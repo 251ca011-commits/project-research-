@@ -7,7 +7,7 @@ export const LegalDisclaimer = ({ compact = false }) => {
       <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-950/40 border border-amber-500/30 text-amber-200/90 text-xs">
         <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
         <span>
-          <strong>AI Safety:</strong> AI predictions & similarity calculations are analytical estimates. They do not constitute formal legal advice or binding judicial rulings.
+          <strong>AI Safety notice:</strong> AI predictions & similarity calculations are analytical estimates. They do not constitute formal legal advice or binding judicial rulings.
         </span>
       </div>
     );
