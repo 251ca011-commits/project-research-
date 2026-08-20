@@ -1,122 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from 'react';
+import { AppProvider, useApp } from './context/AppContext';
+import { Layout } from './components/layout/Layout';
+
+// 14 Core Views
+import { LoginView } from './components/views/LoginView';
+import { DashboardView } from './components/views/DashboardView';
+import { SearchCasesView } from './components/views/SearchCasesView';
+import { CaseDetailsView } from './components/views/CaseDetailsView';
+import { SimilarCasesView } from './components/views/SimilarCasesView';
+import { CaseComparisonView } from './components/views/CaseComparisonView';
+import { JudgmentDetailsView } from './components/views/JudgmentDetailsView';
+import { LegalIssuesView } from './components/views/LegalIssuesView';
+import { LegalSectionsView } from './components/views/LegalSectionsView';
+import { PredictionView } from './components/views/PredictionView';
+import { VerificationView } from './components/views/VerificationView';
+import { SavedCasesView } from './components/views/SavedCasesView';
+import { SettingsView } from './components/views/SettingsView';
+
+const MainViewRouter = () => {
+  const { currentView } = useApp();
+
+  switch (currentView) {
+    case 'login':
+      return <LoginView />;
+    case 'dashboard':
+      return <DashboardView />;
+    case 'search':
+    case 'search-results':
+      return <SearchCasesView />;
+    case 'case-details':
+      return <CaseDetailsView />;
+    case 'similar':
+      return <SimilarCasesView />;
+    case 'compare':
+      return <CaseComparisonView />;
+    case 'judgments':
+      return <JudgmentDetailsView />;
+    case 'legal-issues':
+      return <LegalIssuesView />;
+    case 'legal-sections':
+      return <LegalSectionsView />;
+    case 'prediction':
+      return <PredictionView />;
+    case 'verification':
+      return <VerificationView />;
+    case 'saved':
+      return <SavedCasesView />;
+    case 'settings':
+      return <SettingsView />;
+    default:
+      return <DashboardView />;
+  }
+};
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <AppProvider>
+      <Layout>
+        <MainViewRouter />
+      </Layout>
+    </AppProvider>
+  );
 }
 
-export default App
+export default App;
