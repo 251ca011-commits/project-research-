@@ -14,7 +14,7 @@ export const LoginView = () => {
       name: role === 'Senior Advocate' ? 'Adv. K. Ramaswamy' : 'Adv. Rajeshwari Iyer',
       role: role,
       email: email,
-      organization: 'Supreme Court & High Court Bar Association',
+      organization: 'Supreme Court & High Court Bar ',
       isLoggedIn: true
     });
     showToast(`Welcome back, ${role === 'Senior Advocate' ? 'Adv. Ramaswamy' : 'Adv. Iyer'}`, 'success');
