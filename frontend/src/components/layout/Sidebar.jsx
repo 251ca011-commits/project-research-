@@ -67,6 +67,7 @@ export const Sidebar = () => {
           count: savedCaseIds.length + savedJudgmentIds.length 
         },
         { id: 'settings', label: 'Settings', icon: Settings },
+        { id: 'login', label: 'Login / Portal', icon: LogIn },
       ]
     }
   ];
@@ -76,14 +77,14 @@ export const Sidebar = () => {
       {/* Brand Header */}
       <div className="p-5 border-b border-slate-800 flex items-center justify-between">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigateTo('dashboard')}>
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center shadow-md shadow-indigo-600/30">
-            <Scale className="w-5 h-5 text-white" />
+          <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-md">
+            <Scale className="w-5 h-5 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="font-bold text-base tracking-wider text-slate-100 uppercase" style={{ fontFamily: 'var(--font-display)' }}>
+            <h1 className="font-bold text-base tracking-wider text-primary uppercase">
               RESEARCH
             </h1>
-            <p className="text-[10px] text-indigo-300 font-medium tracking-wide uppercase">Legal Precedent Engine</p>
+            <p className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase">Legal Precedent Engine</p>
           </div>
         </div>
       </div>

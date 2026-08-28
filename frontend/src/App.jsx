@@ -2,7 +2,8 @@ import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Layout } from './components/layout/Layout';
 
-// 14 Core Views
+// 15 Core Views
+import { WelcomeView } from './components/views/WelcomeView';
 import { LoginView } from './components/views/LoginView';
 import { DashboardView } from './components/views/DashboardView';
 import { SearchCasesView } from './components/views/SearchCasesView';
@@ -21,6 +22,8 @@ const MainViewRouter = () => {
   const { currentView } = useApp();
 
   switch (currentView) {
+    case 'welcome':
+      return <WelcomeView />;
     case 'login':
       return <LoginView />;
     case 'dashboard':

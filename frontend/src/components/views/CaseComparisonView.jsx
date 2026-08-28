@@ -50,7 +50,7 @@ export const CaseComparisonView = () => {
               <GitCompare className="w-3.5 h-3.5" />
               <span>Comparative Legal Matrix</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               Side-by-Side Case & Precedent Comparison
             </h1>
             <p className="text-xs text-slate-400">

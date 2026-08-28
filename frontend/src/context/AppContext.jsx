@@ -12,8 +12,8 @@ import {
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  // Navigation
-  const [currentView, setCurrentView] = useState('dashboard');
+  // Navigation (Default to Landing / Welcome Page)
+  const [currentView, setCurrentView] = useState('welcome');
   
   // Selected Entities
   const [selectedCaseId, setSelectedCaseId] = useState(101);
@@ -45,7 +45,7 @@ export const AppProvider = ({ children }) => {
     role: 'Senior Legal Researcher',
     email: 'r.iyer@chambers-legal.in',
     organization: 'Supreme Court & Madras High Court Bar Association',
-    isLoggedIn: true
+    isLoggedIn: false
   });
   
   // Toast notifications

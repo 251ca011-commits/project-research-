@@ -37,7 +37,7 @@ export const SettingsView = () => {
           <Settings className="w-3.5 h-3.5" />
           <span>Application Settings</span>
         </div>
-        <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+        <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
           System Preferences & Backend Configuration
         </h1>
         <p className="text-xs text-slate-400">

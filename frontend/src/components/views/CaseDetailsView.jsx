@@ -56,7 +56,7 @@ export const CaseDetailsView = () => {
               <span className="text-xs text-slate-400">• {activeCase.case_number}</span>
             </div>
 
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               {activeCase.case_title}
             </h1>
 
