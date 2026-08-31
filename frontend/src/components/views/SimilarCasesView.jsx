@@ -45,7 +45,7 @@ export const SimilarCasesView = () => {
               <Sparkles className="w-3.5 h-3.5" />
               <span>Precedent Similarity Engine</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               Similar Cases & Precedents for ID #{activeCase.case_id}
             </h1>
             <p className="text-xs text-slate-400">

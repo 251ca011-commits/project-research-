@@ -39,7 +39,7 @@ export const LegalSectionsView = () => {
               <BookOpen className="w-3.5 h-3.5" />
               <span>Statutory Sections Catalog</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               Legal Acts & Sections Directory
             </h1>
             <p className="text-xs text-slate-400">
@@ -100,7 +100,7 @@ export const LegalSectionsView = () => {
               <span className="text-xs font-bold text-indigo-400">{activeSection.act_name}</span>
               <TagBadge variant="purple">{activeSection.section_number}</TagBadge>
             </div>
-            <h2 className="text-lg font-bold text-white">{activeSection.section_title}</h2>
+            <h2 className="text-lg font-bold text-primary">{activeSection.section_title}</h2>
             <p className="text-xs md:text-sm text-slate-300 leading-relaxed font-serif p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
               "{activeSection.description}"
             </p>

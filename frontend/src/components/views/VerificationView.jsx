@@ -35,7 +35,7 @@ export const VerificationView = () => {
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Judicial Verification Registry</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               Precedent Source & Verification Registry
             </h1>
             <p className="text-xs text-slate-400">

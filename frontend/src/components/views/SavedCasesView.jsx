@@ -45,7 +45,7 @@ export const SavedCasesView = () => {
               <Bookmark className="w-3.5 h-3.5" />
               <span>Personal Precedent Binder</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               Saved Cases & Bookmarked Judgments
             </h1>
             <p className="text-xs text-slate-400">

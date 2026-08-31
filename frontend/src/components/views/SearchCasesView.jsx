@@ -76,8 +76,8 @@ export const SearchCasesView = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight flex items-center gap-2.5">
-            <Search className="w-6 h-6 text-indigo-400" />
+          <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight flex items-center gap-2.5">
+            <Search className="w-6 h-6 text-primary" />
             <span>Search Legal Cases & Precedents</span>
           </h1>
           <p className="text-xs text-slate-400 mt-1">

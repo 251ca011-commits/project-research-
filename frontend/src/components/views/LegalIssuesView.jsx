@@ -32,7 +32,7 @@ export const LegalIssuesView = () => {
               <HelpCircle className="w-3.5 h-3.5" />
               <span>Substantive Issues Catalog</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               Legal Issues & Questions of Law
             </h1>
             <p className="text-xs text-slate-400">

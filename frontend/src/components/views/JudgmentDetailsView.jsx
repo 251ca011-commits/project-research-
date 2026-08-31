@@ -41,7 +41,7 @@ export const JudgmentDetailsView = () => {
               <VerificationBadge status={activeJudgment.source.verification_status} />
             </div>
 
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
               {activeJudgment.case_name}
             </h1>
 
