@@ -44,90 +44,97 @@ export const DashboardView = () => {
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
       {/* Hero Welcome & Universal Search */}
-      <div className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-indigo-950/60 via-slate-900/90 to-slate-950 border border-indigo-500/20 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="p-6 md:p-8 rounded-2xl bg-card border-2 border-border shadow-xl relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="max-w-3xl space-y-4 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
-            <Scale className="w-3.5 h-3.5" />
+        <div className="max-w-3xl space-y-4 relative z-10 flex-1">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-secondary-foreground text-xs font-semibold">
+            <Scale className="w-3.5 h-3.5 text-primary" />
             <span>AI-Assisted Legal Precedent Discovery</span>
           </div>
 
-          <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-            Welcome back, {user.name}
+          <h1 className="text-2xl md:text-3xl font-bold text-primary tracking-tight">
+            Welcome back, <span className="text-primary font-extrabold">{user.name}</span>
           </h1>
-          <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+          <p className="text-xs md:text-sm text-foreground/80 leading-relaxed">
             Search case facts, analyze judicial reasoning across High Courts & the Supreme Court, uncover high-similarity precedents, and examine outcome predictions.
           </p>
 
           {/* Main Case Search Box */}
           <form onSubmit={handleSearch} className="pt-2">
             <div className="relative flex items-center shadow-xl">
-              <Search className="w-5 h-5 text-indigo-400 absolute left-4" />
+              <Search className="w-5 h-5 text-primary absolute left-4" />
               <input
                 type="text"
                 value={dashSearch}
                 onChange={(e) => setDashSearch(e.target.value)}
                 placeholder="Search for a case, legal issue, section or keyword (e.g., Hindu Succession Section 6, Arbitration 34)..."
-                className="w-full pl-12 pr-32 py-3.5 rounded-xl bg-slate-950/90 border border-indigo-500/30 text-xs md:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30 shadow-inner"
+                className="w-full pl-12 pr-36 py-3.5 rounded-xl bg-background border-2 border-border text-xs md:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 shadow-inner"
               />
               <button
                 type="submit"
-                className="absolute right-2 px-5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-md shadow-indigo-600/30"
+                className="absolute right-2 px-5 py-2 rounded-lg bg-primary hover:opacity-90 text-primary-foreground text-xs font-bold transition-all shadow-md"
               >
                 Search Precedents
               </button>
             </div>
           </form>
         </div>
+
+        {/* Right Corner Logo Badge */}
+        <div className="hidden sm:flex items-center justify-center relative z-10 self-center shrink-0 pr-2">
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-primary flex items-center justify-center shadow-xl shadow-primary/20 border-2 border-border/40 hover:scale-105 transition-transform">
+            <Scale className="w-10 h-10 md:w-12 md:h-12 text-white stroke-[2.2]" />
+          </div>
+        </div>
       </div>
 
       {/* Quick Action Tiles (Section 5 Spec) */}
       <div className="space-y-3">
-        <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400">Quick Actions</h2>
+        <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Quick Actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div
             onClick={() => navigateTo('search')}
             className="p-4 rounded-xl glass-panel-interactive cursor-pointer group space-y-2"
           >
-            <div className="w-10 h-10 rounded-lg bg-blue-950/70 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
               <Search className="w-5 h-5" />
             </div>
-            <h3 className="text-sm font-semibold text-slate-100 group-hover:text-indigo-300 transition-colors">Search Case</h3>
-            <p className="text-xs text-slate-400">Filter precedents by Court, Section, Case Type, and Outcomes.</p>
+            <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Search Case</h3>
+            <p className="text-xs text-muted-foreground">Filter precedents by Court, Section, Case Type, and Outcomes.</p>
           </div>
 
           <div
             onClick={() => navigateTo('similar')}
             className="p-4 rounded-xl glass-panel-interactive cursor-pointer group space-y-2"
           >
-            <div className="w-10 h-10 rounded-lg bg-cyan-950/70 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
               <Sparkles className="w-5 h-5" />
             </div>
-            <h3 className="text-sm font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors">Find Similar Cases</h3>
-            <p className="text-xs text-slate-400">Identify 90%+ similarity matches with reasoning breakdown.</p>
+            <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Find Similar Cases</h3>
+            <p className="text-xs text-muted-foreground">Identify 90%+ similarity matches with reasoning breakdown.</p>
           </div>
 
           <div
             onClick={() => navigateTo('compare')}
             className="p-4 rounded-xl glass-panel-interactive cursor-pointer group space-y-2"
           >
-            <div className="w-10 h-10 rounded-lg bg-purple-950/70 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
               <GitCompare className="w-5 h-5" />
             </div>
-            <h3 className="text-sm font-semibold text-slate-100 group-hover:text-purple-300 transition-colors">Compare Cases</h3>
-            <p className="text-xs text-slate-400">Side-by-side doctrinal comparison of facts, issues, and rulings.</p>
+            <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Compare Cases</h3>
+            <p className="text-xs text-muted-foreground">Side-by-side doctrinal comparison of facts, issues, and rulings.</p>
           </div>
 
           <div
             onClick={() => navigateTo('saved')}
             className="p-4 rounded-xl glass-panel-interactive cursor-pointer group space-y-2"
           >
-            <div className="w-10 h-10 rounded-lg bg-amber-950/70 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
               <Bookmark className="w-5 h-5" />
             </div>
-            <h3 className="text-sm font-semibold text-slate-100 group-hover:text-amber-300 transition-colors">View Saved Cases</h3>
-            <p className="text-xs text-slate-400">Access your bookmarked briefs and precedent binders.</p>
+            <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">View Saved Cases</h3>
+            <p className="text-xs text-muted-foreground">Access your bookmarked briefs and precedent binders.</p>
           </div>
         </div>
       </div>

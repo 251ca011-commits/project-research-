@@ -8,7 +8,8 @@ import {
   Bookmark, 
   ChevronRight, 
   Layers,
-  FolderOpen
+  FolderOpen,
+  LogIn
 } from 'lucide-react';
 
 export const Header = () => {
@@ -144,10 +145,19 @@ export const Header = () => {
         >
           <Bookmark className="w-4 h-4" />
           {(savedCaseIds.length + savedJudgmentIds.length > 0) && (
-            <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-indigo-600 text-white text-[9px] font-bold flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-primary text-primary-foreground text-[9px] font-bold flex items-center justify-center">
               {savedCaseIds.length + savedJudgmentIds.length}
             </span>
           )}
+        </button>
+
+        <button
+          onClick={() => navigateTo('login')}
+          title="Account / Sign In"
+          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-secondary border border-border text-secondary-foreground text-xs font-semibold hover:border-primary transition-all cursor-pointer"
+        >
+          <LogIn className="w-3.5 h-3.5 text-primary" />
+          <span className="hidden sm:inline">Sign In</span>
         </button>
       </div>
     </header>

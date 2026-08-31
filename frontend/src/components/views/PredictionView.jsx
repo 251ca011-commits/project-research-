@@ -45,7 +45,7 @@ export const PredictionView = () => {
               <Sparkles className="w-3.5 h-3.5" />
               <span>AI Analytical Precedent Forecaster</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
               Predicted Possible Outcome for Case #{activeCase.case_id}
             </h1>
             <p className="text-xs text-slate-300">
