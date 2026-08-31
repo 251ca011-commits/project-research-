@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Layout } from './components/layout/Layout';
+import { getHealth } from './services/api';
 
 // 15 Core Views
 import { WelcomeView } from './components/views/WelcomeView';
@@ -26,37 +27,60 @@ const MainViewRouter = () => {
       return <WelcomeView />;
     case 'login':
       return <LoginView />;
+
     case 'dashboard':
       return <DashboardView />;
+
     case 'search':
     case 'search-results':
       return <SearchCasesView />;
+
     case 'case-details':
       return <CaseDetailsView />;
+
     case 'similar':
       return <SimilarCasesView />;
+
     case 'compare':
       return <CaseComparisonView />;
+
     case 'judgments':
       return <JudgmentDetailsView />;
+
     case 'legal-issues':
       return <LegalIssuesView />;
+
     case 'legal-sections':
       return <LegalSectionsView />;
+
     case 'prediction':
       return <PredictionView />;
+
     case 'verification':
       return <VerificationView />;
+
     case 'saved':
       return <SavedCasesView />;
+
     case 'settings':
       return <SettingsView />;
+
     default:
       return <DashboardView />;
   }
 };
 
 function App() {
+  useEffect(() => {
+    getHealth()
+      .then((data) => {
+        console.log('Backend connected:', data);
+      })
+      .catch((error) => {
+        console.error('Backend connection failed:', error);
+      });
+  }, []);
+
   return (
     <AppProvider>
       <Layout>
