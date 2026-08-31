@@ -8,13 +8,23 @@
     "dev": "nodemon src/server.js",
     "seed": "node seed/seed.js"
   },
-  "keywords": ["legal", "research", "precedent", "court", "judgment", "nodejs", "express", "sequelize"],
+  "keywords": [
+    "legal",
+    "research",
+    "precedent",
+    "court",
+    "judgment",
+    "nodejs",
+    "express",
+    "sequelize"
+  ],
   "author": "RESEARCH Legal Team",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "pg": "^8.23.0",
     "sequelize": "^6.37.5",
     "sqlite3": "^5.1.7"
   },

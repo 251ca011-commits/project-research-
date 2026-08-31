@@ -8,8 +8,7 @@ const startServer = async () => {
   try {
     // Authenticate and sync database tables
     await sequelize.authenticate();
-    console.log('✔ SQLite Database connection verified successfully.');
-    
+    console.log('✔ PostgreSQL Database connection verified successfully.');
     await sequelize.sync({ alter: true });
     console.log('✔ All 7 Legal database models synchronized.');
 
