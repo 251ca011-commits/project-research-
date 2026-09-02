@@ -1,15 +1,15 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
-import { 
-  TrendingUp, 
-  Scale, 
-  ShieldAlert, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ExternalLink, 
-  ArrowRight, 
-  HelpCircle, 
-  Gavel, 
+import {
+  TrendingUp,
+  Scale,
+  ShieldAlert,
+  CheckCircle2,
+  AlertTriangle,
+  ExternalLink,
+  ArrowRight,
+  HelpCircle,
+  Gavel,
   Sparkles,
   Info
 } from 'lucide-react';
@@ -17,11 +17,11 @@ import { LegalDisclaimer } from '../common/Disclaimer';
 import { TagBadge, SimilarityBadge } from '../common/Badge';
 
 export const PredictionView = () => {
-  const { 
-    activeCase, 
-    activePrediction, 
-    navigateTo, 
-    setSelectedJudgmentId 
+  const {
+    activeCase,
+    activePrediction,
+    navigateTo,
+    setSelectedJudgmentId
   } = useApp();
 
   if (!activePrediction) {
