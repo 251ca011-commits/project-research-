@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { Scale, Lock, Mail, ArrowRight, ShieldCheck, UserCheck } from 'lucide-react';
+import decoScalesImg from '../../assets/deco-scales.jpg';
+import decoBooksImg from '../../assets/deco-books.jpg';
+import decoGavelImg from '../../assets/deco-gavel.jpg';
 
 export const LoginView = () => {
   const { setUser, navigateTo, showToast } = useApp();
@@ -28,114 +31,140 @@ export const LoginView = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto space-y-6 animate-in fade-in duration-300">
-      {/* Brand Header with Brown Logo Badge */}
-      <div className="text-center space-y-3">
-        <div className="inline-flex p-4 rounded-3xl bg-primary text-white shadow-xl shadow-primary/25 border-2 border-border/40 mb-1">
-          <Scale className="w-9 h-9 stroke-[2.2]" />
-        </div>
-        <h1 className="text-2xl font-bold tracking-tight text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
-          RESEARCH
-        </h1>
-        <p className="text-xs text-muted-foreground">
-          AI-Assisted Legal Precedent Discovery & Judgment Analysis
-        </p>
-      </div>
+    <div className="login-page-container">
+      {/* Warm gradient background */}
+      <div className="login-bg-gradient" />
 
-      {/* Main Login Card with Peach/Amber Border */}
-      <div className="p-6 md:p-8 rounded-2xl bg-card border-2 border-border shadow-2xl space-y-6">
-        <div className="space-y-1 text-center">
-          <h2 className="text-lg font-bold text-foreground">Sign in to Chambers Portal</h2>
-          <p className="text-xs text-muted-foreground">Enter your credentials to access case intelligence</p>
+      {/* Decorative floating legal elements */}
+      <img src={decoBooksImg} alt="" className="login-deco login-deco-books-tl" aria-hidden="true" />
+      <img src={decoScalesImg} alt="" className="login-deco login-deco-scales-tr" aria-hidden="true" />
+      <img src={decoGavelImg} alt="" className="login-deco login-deco-gavel-bl" aria-hidden="true" />
+      <img src={decoScalesImg} alt="" className="login-deco login-deco-scales-br" aria-hidden="true" />
+      <img src={decoBooksImg} alt="" className="login-deco login-deco-books-mr" aria-hidden="true" />
+
+      {/* Subtle light orbs */}
+      <div className="login-orb login-orb-1" />
+      <div className="login-orb login-orb-2" />
+      <div className="login-orb login-orb-3" />
+
+      {/* Main content */}
+      <div className="login-content-wrapper">
+        {/* Brand Header */}
+        <div className="login-brand-header">
+          <div className="login-logo-badge">
+            <Scale className="w-8 h-8 stroke-[2.2]" style={{ color: 'white' }} />
+          </div>
+          <h1 className="login-brand-title" style={{ fontFamily: 'var(--font-heading, var(--font-serif))' }}>
+            RESEARCH
+          </h1>
+          <div className="login-brand-underline" />
+          <p className="login-brand-subtitle">
+            AI-Assisted Legal Precedent Discovery & Judgment Analysis
+          </p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-foreground">Official Email</label>
-            <div className="relative">
-              <Mail className="w-4 h-4 text-primary absolute left-3 top-1/2 -translate-y-1/2" />
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@lawchambers.com"
-                className="w-full pl-9 pr-3 py-2 rounded-lg bg-background border-2 border-border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 shadow-inner"
-              />
-            </div>
+        {/* Glass Login Card */}
+        <div className="login-glass-card">
+          <div className="login-card-header">
+            <h2 className="login-card-title">Sign in to Chambers Portal</h2>
+            <p className="login-card-desc">Enter your credentials to access case intelligence</p>
           </div>
 
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <label className="text-xs font-semibold text-foreground">Password</label>
-              <a
-                href="#forgot"
-                onClick={(e) => {
-                  e.preventDefault();
-                  showToast('Password reset link sent to demo email', 'info');
-                }}
-                className="text-[11px] text-primary hover:underline font-medium"
+          <form onSubmit={handleLogin} className="login-form">
+            <div className="login-field">
+              <label className="login-label">Official Email</label>
+              <div className="login-input-wrap">
+                <Mail className="login-input-icon" />
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@lawchambers.com"
+                  className="login-input"
+                  id="login-email"
+                />
+              </div>
+            </div>
+
+            <div className="login-field">
+              <div className="login-label-row">
+                <label className="login-label">Password</label>
+                <a
+                  href="#forgot"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showToast('Password reset link sent to demo email', 'info');
+                  }}
+                  className="login-forgot-link"
+                >
+                  Forgot password?
+                </a>
+              </div>
+              <div className="login-input-wrap">
+                <Lock className="login-input-icon" />
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••••••"
+                  className="login-input"
+                  id="login-password"
+                />
+              </div>
+            </div>
+
+            <div className="login-field">
+              <label className="login-label">Practitioner Profile</label>
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="login-select"
+                id="login-profile"
               >
-                Forgot password?
-              </a>
+                <option value="Senior Legal Researcher">Senior Legal Researcher (Default)</option>
+                <option value="Senior Advocate">Senior Advocate (Litigation Counsel)</option>
+                <option value="Judicial Law Clerk">Judicial Law Clerk / Researcher</option>
+              </select>
             </div>
-            <div className="relative">
-              <Lock className="w-4 h-4 text-primary absolute left-3 top-1/2 -translate-y-1/2" />
-              <input
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••••••"
-                className="w-full pl-9 pr-3 py-2 rounded-lg bg-background border-2 border-border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 shadow-inner"
-              />
+
+            <button type="submit" className="login-submit-btn" id="login-submit">
+              <span>Enter Legal Portal</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </form>
+
+          {/* Divider with Scale icon */}
+          <div className="login-divider">
+            <div className="login-divider-line" />
+            <Scale className="login-divider-icon" />
+            <div className="login-divider-line" />
+          </div>
+
+          {/* Quick Demo Profiles */}
+          <div className="login-demo-section">
+            <div className="login-demo-title">QUICK DEMO PROFILES</div>
+            <div className="login-demo-grid">
+              <button
+                type="button"
+                onClick={() => setDemoAccount('Senior Legal Researcher', 'r.iyer@chambers-legal.in')}
+                className="login-demo-btn"
+                id="demo-researcher"
+              >
+                <UserCheck className="w-3.5 h-3.5" style={{ color: 'var(--primary)' }} />
+                <span>Researcher</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setDemoAccount('Senior Advocate', 'k.ramaswamy@bar-council.in')}
+                className="login-demo-btn"
+                id="demo-advocate"
+              >
+                <ShieldCheck className="w-3.5 h-3.5" style={{ color: 'var(--primary)' }} />
+                <span>Sr. Advocate</span>
+              </button>
             </div>
-          </div>
-
-          <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-foreground">Practitioner Profile</label>
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg bg-background border-2 border-border text-xs text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 shadow-inner"
-            >
-              <option value="Senior Legal Researcher">Senior Legal Researcher (Default)</option>
-              <option value="Senior Advocate">Senior Advocate (Litigation Counsel)</option>
-              <option value="Judicial Law Clerk">Judicial Law Clerk / Researcher</option>
-            </select>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full py-2.5 px-4 rounded-lg bg-primary hover:opacity-90 text-primary-foreground text-xs font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all mt-3 cursor-pointer"
-          >
-            <span>Enter Legal Portal</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </form>
-
-        {/* Quick Demo Switcher */}
-        <div className="pt-4 border-t border-border space-y-2">
-          <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider text-center">
-            Quick Demo Profiles
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              type="button"
-              onClick={() => setDemoAccount('Senior Legal Researcher', 'r.iyer@chambers-legal.in')}
-              className="p-2.5 rounded-lg bg-secondary hover:opacity-90 border border-border text-[11px] text-secondary-foreground font-semibold flex items-center gap-1.5 justify-center transition-all cursor-pointer"
-            >
-              <UserCheck className="w-3.5 h-3.5 text-primary" />
-              <span>Researcher</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setDemoAccount('Senior Advocate', 'k.ramaswamy@bar-council.in')}
-              className="p-2.5 rounded-lg bg-secondary hover:opacity-90 border border-border text-[11px] text-secondary-foreground font-semibold flex items-center gap-1.5 justify-center transition-all cursor-pointer"
-            >
-              <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-              <span>Sr. Advocate</span>
-            </button>
           </div>
         </div>
       </div>

@@ -11,14 +11,9 @@ export const Layout = ({ children }) => {
   // If on welcome or login view, render a clean focused layout without standard sidebar
   if (currentView === 'welcome' || currentView === 'login') {
     return (
-      <div className="min-h-screen bg-background text-foreground flex flex-col justify-between">
-        <main className="flex-1 flex items-center justify-center p-6">
-          {children}
-        </main>
-        <footer className="py-4 border-t border-border text-center text-xs text-muted-foreground">
-          RESEARCH Legal Intelligence & Precedent Discovery Platform • Confidential Law Firm Portal
-        </footer>
-      </div>
+      <>
+        {children}
+      </>
     );
   }
 
